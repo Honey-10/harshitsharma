@@ -2,7 +2,7 @@
 
 My personal portfolio website. Built it from scratch using Next.js, Tailwind, and Framer Motion. Nothing fancy copied — just spent time making it look clean and feel smooth.
 
-Live at → **[harshitsharma.vercel.app](https://harshitsharma.vercel.app)**
+Live at → **[harshitsharma.vercel.app](https://harshits0210.vercel.app)**
 
 ---
 
