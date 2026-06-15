@@ -18,38 +18,44 @@ const projects = [
     placeholder: false,
     year: '2024',
     featured: true,
+    logo: 'N',
+    site: 'nktv-news.vercel.app',
   },
   {
     id: 2,
-    title: 'Project Alpha',
-    tagline: 'Coming Soon',
+    title: 'Developer Portfolio',
+    tagline: 'Developer Portfolio Website',
     description:
-      'The next project is currently in development. Expect a full-stack application with modern architecture, clean UI, and real-world utility. Stay tuned.',
-    tech: ['React.js', 'Node.js', 'MongoDB'],
-    liveUrl: null,
-    githubUrl: null,
-    status: 'upcoming',
-    gradient: 'from-blue-500/15 via-indigo-500/10 to-transparent',
-    accentColor: '#6366F1',
-    placeholder: true,
+      'A modern developer portfolio built with Next.js, Tailwind CSS, and Framer Motion. Features responsive design, smooth animations, project showcase, and professional UI/UX.',
+    tech: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'JavaScript'],
+    liveUrl: 'https://harshits0210.vercel.app',
+    githubUrl: 'https://github.com/Honey-10/harshitsharma',
+    status: 'live',
+    gradient: 'from-blue-500/20 via-cyan-500/10 to-transparent',
+    accentColor: '#E8652A',
+    placeholder: false,
     year: '2026',
     featured: false,
+    logo: 'HS',
+    site: 'harshits0210.vercel.app',
   },
   {
     id: 3,
-    title: 'Project Beta',
-    tagline: 'In Planning',
+    title: 'Sharma Printers',
+    tagline: 'Business Website (In Development)',
     description:
-      'Another exciting project is being planned — focused on performance, developer experience, and elegant user interfaces. Details will be revealed soon.',
-    tech: ['Next.js', 'Tailwind CSS', 'API'],
+      'A modern business website for a printing services company. Focused on responsive design, service showcase, SEO optimization, and improved customer engagement.',
+    tech: ['Next.js', 'Tailwind CSS', 'JavaScript'],
     liveUrl: null,
     githubUrl: null,
-    status: 'upcoming',
+    status: 'dev',
     gradient: 'from-emerald-500/15 via-teal-500/10 to-transparent',
-    accentColor: '#10B981',
-    placeholder: true,
+    accentColor: '#E8652A',
+    placeholder: false,
     year: '2026',
     featured: false,
+    logo: 'SP',
+    site: 'Coming Soon',
   },
 ]
 
@@ -63,11 +69,10 @@ function ProjectCard({ project, i }) {
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -6 }}
-      className={`glass border rounded-2xl overflow-hidden group relative transition-colors duration-300 flex flex-col ${
-        project.featured
-          ? 'border-accent/20 hover:border-accent/40'
-          : 'border-white/8 hover:border-white/15'
-      }`}
+      className={`glass border rounded-2xl overflow-hidden group relative transition-colors duration-300 flex flex-col ${project.featured
+        ? 'border-accent/20 hover:border-accent/40'
+        : 'border-white/8 hover:border-white/15'
+        }`}
     >
       {/* Featured badge */}
       {project.featured && (
@@ -116,13 +121,13 @@ function ProjectCard({ project, i }) {
                   color: project.accentColor,
                 }}
               >
-                N
+                {project.logo}
               </div>
               <div className="text-center">
                 <p className="text-xs font-mono font-medium" style={{ color: project.accentColor }}>
-                  NKTV News
+                  {project.title}
                 </p>
-                <p className="text-[10px] text-muted/60 mt-0.5">nktv-news.vercel.app</p>
+                <p className="text-[10px] text-muted/60 mt-0.5">{project.site}</p>
               </div>
             </div>
           )}
@@ -142,13 +147,16 @@ function ProjectCard({ project, i }) {
             </p>
           </div>
           <span
-            className={`shrink-0 text-[10px] font-mono px-2 py-0.5 rounded-full border mt-1 ${
-              project.status === 'live'
-                ? 'text-green-400 bg-green-400/10 border-green-400/20'
-                : 'text-muted bg-muted/10 border-muted/20'
-            }`}
+            className={`shrink-0 text-[10px] font-mono px-2 py-0.5 rounded-full border mt-1 ${project.status === 'live'
+              ? 'text-green-400 bg-green-400/10 border-green-400/20'
+              : 'text-muted bg-muted/10 border-muted/20'
+              }`}
           >
-            {project.status === 'live' ? '● LIVE' : '○ SOON'}
+            {project.status === 'live'
+              ? '● LIVE'
+              : project.status === 'dev'
+                ? '🚧 DEV'
+                : '○ SOON'}
           </span>
         </div>
 
@@ -195,11 +203,10 @@ function ProjectCard({ project, i }) {
             href={project.githubUrl || '#'}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-body font-medium glass border transition-all duration-200 ${
-              project.githubUrl
-                ? 'border-white/15 text-muted hover:text-white hover:border-white/25'
-                : 'border-white/5 text-subtle cursor-not-allowed'
-            }`}
+            className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-body font-medium glass border transition-all duration-200 ${project.githubUrl
+              ? 'border-white/15 text-muted hover:text-white hover:border-white/25'
+              : 'border-white/5 text-subtle cursor-not-allowed'
+              }`}
           >
             <Github size={15} />
             {project.githubUrl ? 'Code' : 'Private'}
@@ -237,7 +244,7 @@ export default function Projects() {
         >
           More projects coming soon —{' '}
           <a
-            href="https://github.com/"
+            href="https://github.com/Honey-10"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent hover:underline"
